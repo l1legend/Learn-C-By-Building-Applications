@@ -1,0 +1,2 @@
+C:\Users\mmin\Desktop\Learn C# By Building Application\SimpleWebScraper\NewProject\obj\Debug\NewProject.csproj.AssemblyReference.cache
+C:\Users\mmin\Desktop\Learn C# By Building Application\SimpleWebScraper\NewProject\obj\Debug\NewProject.csproj.CoreCompileInputs.cache

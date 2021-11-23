@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "acf70bcf-66cb-4d76-80f8-e79a85691e61": {
+      "ProjectGuid": "acf70bcf-66cb-4d76-80f8-e79a85691e61",
+      "DisplayName": "WordUnscrambler.Test.Unit",
+      "ColorIndex": 0
+    },
+    "90b204b9-1f7d-4d91-b23a-980b3a3e7b47": {
+      "ProjectGuid": "90b204b9-1f7d-4d91-b23a-980b3a3e7b47",
+      "DisplayName": "WordUnscrambler",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
