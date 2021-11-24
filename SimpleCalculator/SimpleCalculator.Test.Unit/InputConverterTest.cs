@@ -1,5 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace SimpleCalculator.Test.Unit
 {
@@ -7,6 +7,7 @@ namespace SimpleCalculator.Test.Unit
     public class InputConverterTest
     {
         private readonly InputConverter _inputConverter = new InputConverter();
+
         [TestMethod]
         public void ConvertsValidStringInputIntoDouble()
         {
@@ -21,7 +22,6 @@ namespace SimpleCalculator.Test.Unit
         {
             string inputNumber = "*";
             double convertedNumber = _inputConverter.ConvertInputToNumeric(inputNumber);
-
         }
     }
 }

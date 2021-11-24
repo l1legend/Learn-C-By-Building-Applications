@@ -25,9 +25,10 @@ namespace SimpleCalculator
             }
             catch (Exception ex)
             {
-                //TODO: start loggin exceptions
+                // TODO: start logging exceptions
                 Console.WriteLine(ex.Message);
             }
+            
         }
     }
 }

@@ -12,12 +12,13 @@ namespace SimpleWebScraper.Builders
     {
         private string _regex;
         private RegexOptions _regexOption;
+
         public ScrapeCriteriaPartBuilder()
         {
             SetDefaults();
         }
 
-        void SetDefaults()
+        private void SetDefaults()
         {
             _regex = string.Empty;
             _regexOption = RegexOptions.None;

@@ -1,26 +1,25 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SimpleWebScraper.Builders;
-using SimpleWebScraper.Data;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SimpleWebScraper.Workers;
-using System;
+using SimpleWebScraper.Data;
+using SimpleWebScraper.Builders;
 using System.Text.RegularExpressions;
 
 namespace SimpleWebScraper.Test.Unit
 {
     [TestClass]
-
     public class ScraperTest
     {
-
         private readonly Scraper _scraper = new Scraper();
+
         [TestMethod]
         public void FindCollectionWithNoParts()
         {
             var content = "Some fluff data <a href=\"http://domain.com\" data-id=\"someId\" class=\"result-title hdrlnk\">some text</a> more fluff data";
-            
+
             ScrapeCriteria scrapeCriteria = new ScrapeCriteriaBuilder()
                 .WithData(content)
-                .WithRegex(@"<a href=\""(.*?)\"" data-id=\""(.*?)\"" class=\""result-title hdrlnk\"" id=\""(.*?)\"" >(.*?)</a>")
+                .WithRegex(@"<a href=\""(.*?)\"" data-id=\""(.*?)\"" class=\""result-title hdrlnk\"">(.*?)</a>")
                 .WithRegexOption(RegexOptions.ExplicitCapture)
                 .Build();
 
@@ -30,24 +29,24 @@ namespace SimpleWebScraper.Test.Unit
             Assert.IsTrue(foundElements[0] == "<a href=\"http://domain.com\" data-id=\"someId\" class=\"result-title hdrlnk\">some text</a>");
         }
 
-
         [TestMethod]
         public void FindCollectionWithTwoParts()
         {
             var content = "Some fluff data <a href=\"http://domain.com\" data-id=\"someId\" class=\"result-title hdrlnk\">some text</a> more fluff data";
+
             ScrapeCriteria scrapeCriteria = new ScrapeCriteriaBuilder()
-                       .WithData(content)
-                       .WithRegex(@"<a href=\""(.*?)\"" data-id=\""(.*?)\"" class=\""result-title hdrlnk\"" id=\""(.*?)\"" >(.*?)</a>")
-                        .WithRegexOption(RegexOptions.ExplicitCapture)
-                        .WithPart(new ScrapeCriteriaPartBuilder()
-                        .WithRegex(@">(.*?)</a>")
-                        .WithRegexOption(RegexOptions.Singleline)
-                        .Build())
-                        .WithPart(new ScrapeCriteriaPartBuilder()
-                        .WithRegex(@"href=\""(.*?)""")
-                        .WithRegexOption(RegexOptions.Singleline)
-                        .Build())
-                        .Build();
+                .WithData(content)
+                .WithRegex(@"<a href=\""(.*?)\"" data-id=\""(.*?)\"" class=\""result-title hdrlnk\"">(.*?)</a>")
+                .WithRegexOption(RegexOptions.ExplicitCapture)
+                .WithPart(new ScrapeCriteriaPartBuilder()
+                    .WithRegex(@">(.*?)</a>")
+                    .WithRegexOption(RegexOptions.Singleline)
+                    .Build())
+                .WithPart(new ScrapeCriteriaPartBuilder()
+                    .WithRegex(@"href=\""(.*?)\""")
+                    .WithRegexOption(RegexOptions.Singleline)
+                    .Build())
+                .Build();
 
             var foundElements = _scraper.Scrape(scrapeCriteria);
 

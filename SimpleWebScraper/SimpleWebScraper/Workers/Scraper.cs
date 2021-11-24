@@ -27,10 +27,12 @@ namespace SimpleWebScraper.Workers
                     foreach (var part in scrapeCriteria.Parts)
                     {
                         Match matchedPart = Regex.Match(match.Groups[0].Value, part.Regex, part.RegexOption);
+
                         if (matchedPart.Success) scrapedElements.Add(matchedPart.Groups[1].Value);
                     }
                 }
             }
+
             return scrapedElements;
         }
     }

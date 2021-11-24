@@ -8,35 +8,30 @@ namespace SimpleCalculator
 {
     public class CalculatorEngine
     {
-        public double Calculate(string argOperation, double argFirstNumber, double argSecondNumber)
+        public double Calculate(string argOperation, double argFirstNumber, double argSecondNumnber)
         {
             double result;
-
-            switch(argOperation.ToLower())
+            switch (argOperation.ToLower())
             {
                 case "add":
                 case "+":
-                    result = argFirstNumber + argSecondNumber;
+                    result = argFirstNumber + argSecondNumnber;
                     break;
-
                 case "subtract":
                 case "-":
-                    result = argFirstNumber - argSecondNumber;
+                    result = argFirstNumber - argSecondNumnber;
                     break;
-
                 case "multiply":
                 case "*":
-                    result = argFirstNumber * argSecondNumber;
+                    result = argFirstNumber * argSecondNumnber;
                     break;
-
                 case "divide":
                 case "/":
-                    result = argFirstNumber / argSecondNumber;
+                    result = argFirstNumber / argSecondNumnber;
                     break;
                 default:
-                    throw new InvalidOperationException("Specified operation is not recognized");
+                    throw new InvalidOperationException("Specified operation is not recognized.");
             }
-
             return result;
         }
     }

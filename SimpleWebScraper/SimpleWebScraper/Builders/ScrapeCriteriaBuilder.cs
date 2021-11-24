@@ -60,7 +60,6 @@ namespace SimpleWebScraper.Builders
             scrapeCriteria.RegexOption = _regexOption;
             scrapeCriteria.Parts = _parts;
             return scrapeCriteria;
-
         }
     }
 }
